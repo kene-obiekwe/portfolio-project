@@ -16,27 +16,42 @@ export interface Project {
 
 export const myProjects: Project[] = [
   {
-    id: "1",
-    name: "Project One Name",
-    shortDescription: "A brief 1-2 sentence summary for the homepage grid.",
-    fullDescription: "A detailed explanation for your Dedicated Project Details Page.",
-    techStack: ["React", "TypeScript", "Tailwind"],
-    imageUrl: "https://via.placeholder.com/600x400", // Replace with your screenshot later
-    liveLink: "https://your-live-link.com",
-    githubLink: "https://github.com/yourusername/repo",
-    problemSolved: "Explain the specific issue this app addresses.",
-    features: ["Feature A", "Feature B", "Feature C"],
-    learningOutcome: "What did this project teach you about frontend development?"
+    id: "ai-content-generator", // THIS IS YOUR DEDICATED PROJECT
+    name: "AI-Powered Content Engine",
+    shortDescription: "A sophisticated platform using NLP to generate optimized marketing copy and technical documentation.",
+    fullDescription: "This project serves as a dedicated showcase of AI integration within a React frontend. It leverages Large Language Models to provide real-time, context-aware content generation.",
+    techStack: ["React", "TypeScript", "OpenAI API", "Node.js"],
+    imageUrl: "https://via.placeholder.com/600x400", 
+    liveLink: "https://demo.example.com",
+    githubLink: "https://github.com/example/ai-engine",
+    problemSolved: "Traditional content creation is slow; this tool automates the process with technical precision.",
+    features: ["Real-time Streaming", "Custom Prompting"],
+    learningOutcome: "Mastered asynchronous API handling and prompt engineering."
   },
   {
-    id: "2",
-    name: "Project Two Name",
-    shortDescription: "Another brief summary to meet the 'minimum 2-3' requirement.",
-    fullDescription: "Detailed breakdown of the second project.",
-    techStack: ["Next.js", "Firebase"],
+    id: "student-data-viz",
+    name: "Predictive Analytics Dashboard",
+    shortDescription: "A data visualization tool designed to track and predict student performance using historical data.",
+    fullDescription: "Built to simplify complex data sets, this dashboard provides educators with actionable insights.",
+    techStack: ["Vite", "React", "Chart.js", "Firebase"],
     imageUrl: "https://via.placeholder.com/600x400",
-    problemSolved: "The problem this second project solved was...",
-    features: ["Feature X", "Feature Y"],
-    learningOutcome: "I learned how to manage database states..."
+    liveLink: "https://data.example.com",
+    githubLink: "https://github.com/example/dashboard",
+    problemSolved: "Identifies 'at-risk' students early through trend analysis.",
+    features: ["Interactive Charts", "Auth"],
+    learningOutcome: "Deepened knowledge of state management and data transformation."
+  },
+  {
+    id: "vision-classifier",
+    name: "Automated Image Recognition",
+    shortDescription: "A machine learning model integrated into a web UI for real-time object classification and detection.",
+    fullDescription: "An end-to-end computer vision project that allows users to upload images for instant AI analysis and tagging.",
+    techStack: ["Python", "TensorFlow", "React", "Flask"],
+    imageUrl: "https://via.placeholder.com/600x400",
+    liveLink: "https://vision.example.com",
+    githubLink: "https://github.com/example/vision",
+    problemSolved: "Reduces manual data entry by automatically categorizing visual assets with 95% accuracy.",
+    features: ["Batch Processing", "Model Confidence Scoring"],
+    learningOutcome: "Learned to bridge the gap between Python-based ML models and React-based frontends."
   }
 ];
