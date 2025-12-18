@@ -1,13 +1,28 @@
-import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useParams, useLocation } from 'react-router-dom';
 import { myProjects } from './data/projects';
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import profileImg from './assets/me.jpg'; 
+
+// --- HELPER: SCROLL RESTORATION ---
+// This ensures that when you click a project, you start at the top of that detail page.
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // Only scroll to top if we are NOT on the home page
+    if (pathname !== '/') {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+  return null;
+};
 
 // --- 1. HOME COMPONENT (Main Page) ---
 const Home = () => {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [showProjects, setShowProjects] = useState(false);
+  
+  // Changed: Default to true if we're coming back from a subpage
+  const [showProjects, setShowProjects] = useState(true);
 
   const handleViewWork = () => {
     setShowProjects(true);
@@ -33,7 +48,6 @@ const Home = () => {
           <div className="flex items-center gap-6 md:gap-8 text-sm font-medium text-slate-400">
             <button onClick={handleViewWork} className="hover:text-blue-400 transition-colors">Projects</button>
             
-            {/* Requirement 4: Contact Me Dropdown in Nav */}
             <div className="relative">
               <button 
                 onClick={() => setIsContactOpen(!isContactOpen)} 
@@ -87,7 +101,6 @@ const Home = () => {
                 <p>
                   I am <strong className="text-white">Kene Obiekwe</strong>, a multifaceted developer dedicated to building high-performance applications. I specialize in the intersection of <strong>Machine Learning</strong> and <strong>Modern Web Technologies</strong>.
                 </p>
-                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                   <div className="space-y-4">
                     <h3 className="text-blue-400 font-bold text-xs uppercase tracking-[0.2em]">Core Development</h3>
@@ -117,7 +130,6 @@ const Home = () => {
           </div>
         </div>
         
-        {/* Profile Image - Straight and Framed */}
         <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl border border-slate-700 bg-slate-800 shadow-[0_0_50px_rgba(37,99,235,0.1)] overflow-hidden transition-all duration-500 hover:shadow-blue-500/20">
           <img 
             src={profileImg} 
@@ -129,7 +141,7 @@ const Home = () => {
 
       {/* Projects Grid Section */}
       {showProjects && (
-        <section id="projects" className="max-w-6xl mx-auto px-6 py-24 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+        <section id="projects" className="max-w-6xl mx-auto px-6 py-24">
           <div className="flex items-center gap-4 mb-16">
             <h2 className="text-3xl font-bold text-white tracking-tight">Featured Work</h2>
             <div className="h-[2px] flex-grow bg-gradient-to-r from-blue-600 via-blue-400 to-transparent shadow-[0_0_8px_rgba(37,99,235,0.6)]"></div>
@@ -145,7 +157,6 @@ const Home = () => {
                 <div className="p-8 flex-grow">
                   <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{project.name}</h3>
                   <p className="text-slate-400 mb-6 text-sm leading-relaxed line-clamp-3">{project.shortDescription}</p>
-                  
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.techStack.map(tech => (
                       <span key={tech} className="text-[10px] bg-slate-900 border border-slate-700 px-2.5 py-1 rounded-md font-bold text-blue-400 uppercase tracking-wider">
@@ -156,7 +167,6 @@ const Home = () => {
                 </div>
 
                 <div className="p-8 pt-0 mt-auto">
-                  {/* logic to only show details for 1 project */}
                   {project.id === "ai-content-generator" ? (
                     <Link 
                       to={`/project/${project.id}`} 
@@ -195,10 +205,14 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-[#0f172a] text-slate-300">
       <nav className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md py-5 px-6 sticky top-0 z-30">
         <div className="max-w-5xl mx-auto flex justify-between items-center text-sm">
-          <Link to="/" className="text-blue-500 font-bold flex items-center gap-2 hover:text-blue-400 transition-colors uppercase tracking-widest">
+          {/* Change Link to a simple Back button to leverage browser history */}
+          <button 
+            onClick={() => window.history.back()} 
+            className="text-blue-500 font-bold flex items-center gap-2 hover:text-blue-400 transition-colors uppercase tracking-widest"
+          >
             <span>←</span> Back to Home
-          </Link>
-          <span className="font-bold text-slate-500 uppercase tracking-widest">Project Detail</span>
+          </button>
+          <span className="font-bold text-slate-500 uppercase tracking-widest">Project Details</span>
         </div>
       </nav>
 
@@ -253,6 +267,7 @@ const ProjectDetail = () => {
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* Fixed: Automatically manages scroll behavior */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project/:id" element={<ProjectDetail />} />

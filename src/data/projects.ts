@@ -1,12 +1,18 @@
 // src/data/projects.ts
 
+// 1. IMPORT YOUR IMAGES
+// Vite requires imports to process images located in the src folder
+import toothFixerImg from '../assets/toothfixer-preview.png';
+import osKernelImg from '../assets/os-preview.png';
+import logisticsImg from '../assets/logistics-preview.png';
+
 export interface Project {
   id: string;
   name: string;
   shortDescription: string;
   fullDescription: string; 
   techStack: string[];
-  imageUrl: string;
+  imageUrl: string; 
   liveLink?: string;
   githubLink?: string;
   problemSolved: string;
@@ -16,42 +22,39 @@ export interface Project {
 
 export const myProjects: Project[] = [
   {
-    id: "ai-content-generator", // THIS IS YOUR DEDICATED PROJECT
-    name: "AI-Powered Content Engine",
-    shortDescription: "A sophisticated platform using NLP to generate optimized marketing copy and technical documentation.",
-    fullDescription: "This project serves as a dedicated showcase of AI integration within a React frontend. It leverages Large Language Models to provide real-time, context-aware content generation.",
-    techStack: ["React", "TypeScript", "OpenAI API", "Node.js"],
-    imageUrl: "https://via.placeholder.com/600x400", 
-    liveLink: "https://demo.example.com",
-    githubLink: "https://github.com/example/ai-engine",
-    problemSolved: "Traditional content creation is slow; this tool automates the process with technical precision.",
-    features: ["Real-time Streaming", "Custom Prompting"],
-    learningOutcome: "Mastered asynchronous API handling and prompt engineering."
+    id: "ai-content-generator", // Trigger for Requirement 4 (Dedicated Detail Page)
+    name: "Tooth Fixers Management System",
+    shortDescription: "A three-tier clinical record system built for managing patient biodata and dental history.",
+    fullDescription: "A robust solution for a large dental practice, implementing a strict three-tier architecture (Web server <-> Framework <-> DBMS). It features a secure React frontend connected to a NestJS API and PostgreSQL database.",
+    techStack: ["React", "NestJS", "PostgreSQL", "TypeORM", "TailwindCSS"],
+    imageUrl: toothFixerImg,
+    githubLink: "https://github.com/kene-obiekwe/web-app_projects.git",
+    problemSolved: "Developed a multi-user clinical record system to replace manual record-keeping with a secure, scalable digital solution for dentists.",
+    features: ["Complete Patient CRUD", "Relational Database Design", "One-to-many data mapping", "Branded Green-themed UI"],
+    learningOutcome: "Mastered full-stack integration and the coordination of complex relational data across a multi-tier environment."
   },
   {
-    id: "student-data-viz",
-    name: "Predictive Analytics Dashboard",
-    shortDescription: "A data visualization tool designed to track and predict student performance using historical data.",
-    fullDescription: "Built to simplify complex data sets, this dashboard provides educators with actionable insights.",
-    techStack: ["Vite", "React", "Chart.js", "Firebase"],
-    imageUrl: "https://via.placeholder.com/600x400",
-    liveLink: "https://data.example.com",
-    githubLink: "https://github.com/example/dashboard",
-    problemSolved: "Identifies 'at-risk' students early through trend analysis.",
-    features: ["Interactive Charts", "Auth"],
-    learningOutcome: "Deepened knowledge of state management and data transformation."
+    id: "custom-os-kernel", // Requirement 2
+    name: "Rust x86_64 Operating System",
+    shortDescription: "A low-level kernel featuring custom framebuffer writers and hardware-level print macros.",
+    fullDescription: "A custom OS kernel built from scratch in Rust. It interacts directly with hardware to manage screen output, cursor positioning, and UEFI boot protocols.",
+    techStack: ["Rust", "x86_64", "UEFI", "QEMU", "Assembly"],
+    imageUrl: osKernelImg,
+    githubLink: "https://github.com/kene-obiekwe/csc308OS/tree/main/os_with_bootloader_CA_2",
+    problemSolved: "Developed a custom FrameBufferWriter and print! macro to handle hardware-level text rendering, including overflow wrapping and automatic screen scrolling.",
+    features: ["Custom print! macro", "Escape sequence handling (\\n, \\t)", "Automated screen scrolling", "UEFI Bootloader integration"],
+    learningOutcome: "Deepened understanding of memory safety in no_std environments and hardware-software interfacing."
   },
   {
-    id: "vision-classifier",
-    name: "Automated Image Recognition",
-    shortDescription: "A machine learning model integrated into a web UI for real-time object classification and detection.",
-    fullDescription: "An end-to-end computer vision project that allows users to upload images for instant AI analysis and tagging.",
-    techStack: ["Python", "TensorFlow", "React", "Flask"],
-    imageUrl: "https://via.placeholder.com/600x400",
-    liveLink: "https://vision.example.com",
-    githubLink: "https://github.com/example/vision",
-    problemSolved: "Reduces manual data entry by automatically categorizing visual assets with 95% accuracy.",
-    features: ["Batch Processing", "Model Confidence Scoring"],
-    learningOutcome: "Learned to bridge the gap between Python-based ML models and React-based frontends."
+    id: "delivery-management-system", // Requirement 2
+    name: "C++ Delivery & Logistics Engine",
+    shortDescription: "A logistics application using core data structures to optimize parcel tracking and delivery workflows.",
+    fullDescription: "A high-performance system designed to streamline logistics using advanced data structures like Linked Lists for parcel storage and Binary Search Trees for O(log n) searching.",
+    techStack: ["C++", "Data Structures", "Algorithms"],
+    imageUrl: logisticsImg,
+    githubLink: "https://github.com/kene-obiekwe/csc301-projects/tree/main/Data%20Structures%20Project",
+    problemSolved: "Optimized logistics management by implementing Priority Queues for delivery scheduling and Stacks for undo/redo functionality.",
+    features: ["Priority-based scheduling", "BST search engine", "Undo/Redo via Stacks", "Dynamic parcel management"],
+    learningOutcome: "Mastered the practical application of fundamental data structures to solve real-world performance bottlenecks."
   }
 ];
