@@ -1,6 +1,0 @@
-Portfolio Site Problems:
-- Update with my own information where necessary.*
-- Mobile phone can't retrieve resources from the server/host.*
-- When clicking a hyperlink, the return link should place me in the same spot i was in prior.*
-- Viewing work should take you to my GitHub page.*
-- Incorporate vercel.* 
