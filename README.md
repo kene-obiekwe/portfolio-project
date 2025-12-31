@@ -23,7 +23,9 @@ A high-performance personal portfolio built to showcase a diverse range of techn
    git clone [https://github.com/kene-obiekwe/portfolio-project.git](https://github.com/kene-obiekwe/portfolio-project.git)
 
 2. **Install Dependencies:**
-  npm install
+    ```bash
+   npm install
 
 3. **Run the development server:**
-  npm run dev
+    ```bash
+   npm run dev
