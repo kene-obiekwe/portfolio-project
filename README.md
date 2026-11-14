@@ -1,7 +1,6 @@
 # Portfolio Website 
 
 **Name:** Kene Christopher Obiekwe
-**Matriculation Number:** 22120613021
 
 A high-performance personal portfolio built to showcase a diverse range of technical projects, spanning from Full-Stack Web Development to Systems Programming and Data Structures.
 
