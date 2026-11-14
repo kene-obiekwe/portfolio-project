@@ -35,7 +35,7 @@ export const profile = {
     'As a Digital Risk Consulting intern at EY, I tested IT general controls and supported financial-reporting audit engagements — experience that shapes how I think about access, change management and building systems people can trust.',
   ],
   beyondCode:
-    "Off the keyboard, I'm vice-captain of PAU's football team (MVP at the Coupe De Escriva) and a member of the university chess club.",
+    "Off the keyboard, I was vice-captain of PAU's football team (MVP at the Coupe De Escriva) and a member of the university chess club.",
   education: {
     degree: 'B.Sc. Computer Science',
     school: 'Pan-Atlantic University, Lagos',
