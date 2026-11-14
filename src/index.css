@@ -138,7 +138,37 @@ html {
   animation: intro-blink 1s steps(1) infinite;
 }
 
+/* --- Skill map --- */
+.skill-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: line-draw 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes line-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.skill-star {
+  animation: field-twinkle 3.5s ease-in-out infinite;
+}
+
+button:nth-child(3n + 1) > .skill-star {
+  animation-delay: -1.2s;
+}
+
+button:nth-child(3n + 2) > .skill-star {
+  animation-delay: -2.4s;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .skill-line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .skill-star {
+    animation: none;
+  }
   .reveal {
     opacity: 1;
     transform: none;

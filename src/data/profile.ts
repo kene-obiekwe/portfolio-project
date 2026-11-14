@@ -18,19 +18,20 @@ export interface Experience {
 export interface Certification {
   name: string;
   issuer: string;
-  date: string;
   description: string;
+  url: string;
 }
 
 export const profile = {
   firstName: 'Kene',
   lastName: 'Obiekwe',
-  role: 'Fullstack Developer & Data Scientist',
+  role: 'AI Engineer & Data Scientist',
   intro:
-    'I build data-driven software — machine learning models, SQL analytics pipelines and full-stack web apps — and I like understanding how it all works, right down to the bare metal.',
+    'I build AI and data systems that show their work — grounded RAG tools, machine-learning apps and audited analytics pipelines, shipped to production with the tests to back them.',
   about: [
-    "I'm Kene Obiekwe, a computer scientist from Pan-Atlantic University who works at the intersection of machine learning, data and modern web technologies.",
-    "My work spans the full stack and the full data lifecycle: training a Random Forest model that powers StudyPilot AI's study recommendations (R² 0.957), engineering a validated SQL analytics warehouse over 98,000+ Nigerian public procurement processes, and shipping web and desktop apps in React, Next.js, Django and Java. I also enjoy going low-level — like writing an x86_64 kernel in Rust.",
+    "I'm Kene Obiekwe, a computer scientist from Pan-Atlantic University working across AI engineering, full-stack development and data analytics.",
+    "I like systems whose answers you can check. Taxy answers Nigerian tax questions only from statute text, with a citation for every claim; StudyPilot plans a learner's week and forecasts how much of it they'll complete; and my procurement analytics build reconciles every published figure back to the SQL that produced it.",
+    "I measure before I claim. That has meant fixing evaluation thresholds before running held-out tests, reporting a guardrail that fell short as not met, and rebuilding my own model when I found its headline score was inflated.",
     'As a Digital Risk Consulting intern at EY, I tested IT general controls and supported financial-reporting audit engagements — experience that shapes how I think about access, change management and building systems people can trust.',
   ],
   beyondCode:
@@ -45,15 +46,19 @@ export const profile = {
   skills: [
     {
       label: 'Languages',
-      items: ['Python', 'Java', 'C / C++', 'JavaScript', 'TypeScript', 'Rust', 'SQL', 'HTML / CSS'],
+      items: ['Python', 'SQL', 'Java', 'JavaScript', 'TypeScript', 'C / C++', 'Rust', 'HTML / CSS'],
     },
     {
-      label: 'Frameworks & Libraries',
-      items: ['React', 'Next.js', 'Django', 'NestJS', 'Pandas', 'NumPy', 'scikit-learn', 'TensorFlow', 'Matplotlib', 'Plotly'],
+      label: 'AI & Machine Learning',
+      items: ['RAG', 'LLM evaluation', 'LLM API', 'OpenAI embeddings', 'pgvector', 'scikit-learn', 'TensorFlow'],
     },
     {
-      label: 'Data & Tools',
-      items: ['PostgreSQL', 'MySQL', 'Power BI', 'Docker', 'Git / GitHub', 'Jupyter'],
+      label: 'Libraries & Frameworks',
+      items: ['Pandas', 'NumPy', 'Matplotlib', 'Plotly', 'Django REST Framework', 'Next.js', 'React', 'Streamlit'],
+    },
+    {
+      label: 'Data, Cloud & DevOps',
+      items: ['PostgreSQL', 'MySQL', 'Supabase', 'Neon', 'Docker', 'Render', 'Vercel', 'Power BI', 'Git / GitHub'],
     },
   ] satisfies SkillGroup[],
   experience: [
@@ -66,11 +71,12 @@ export const profile = {
         'Conducted IT General Controls (ITGC) testing for client applications across access management, change management and IT operations.',
         'Supported Internal Controls over Financial Reporting (ICFR) engagements by preparing, tracking and reviewing client information requests and evidence.',
         'Evaluated user access controls, segregation of duties, incident management and change management processes on IT audit engagements, working with a team of 8 consultants.',
+        "Completed EY's FAIT Immersion modules, earning certificates in audit fundamentals, business understanding and control frameworks.",
       ],
     },
     {
       role: 'IT Support Intern',
-      company: 'Qualiserve Group',
+      company: 'QualiServe Group',
       location: 'Eti-Osa, Lagos',
       period: 'Jul – Sep 2024',
       points: [
@@ -82,22 +88,28 @@ export const profile = {
   ] satisfies Experience[],
   certifications: [
     {
-      name: 'GitHub Foundations',
-      issuer: 'GitHub · Microsoft',
-      date: 'Sep 2026 · valid to Sep 2028',
-      description: 'Validated foundational knowledge of Git, GitHub repositories, collaboration workflows, version control and GitHub development practices.',
+      name: 'AI Engineer for Data Scientists Associate',
+      issuer: 'DataCamp',
+      description: 'AI-powered solutions and machine learning in Python.',
+      url: 'https://www.datacamp.com/certificate/AEDS0014459366596',
+    },
+    {
+      name: 'Data Engineer Associate',
+      issuer: 'DataCamp',
+      description: 'Building data pipelines in Python and SQL.',
+      url: 'https://www.datacamp.com/certificate/DEA0012927968386',
     },
     {
       name: 'SQL Associate',
       issuer: 'DataCamp',
-      date: 'Aug 2026',
-      description: 'Demonstrated proficiency in SQL for data extraction, transformation, analysis and querying of relational databases through practical, job-relevant assessments.',
+      description: 'Querying and analysing relational data.',
+      url: 'https://www.datacamp.com/certificate/SQA0015940104094',
     },
     {
-      name: 'FAIT Immersion',
-      issuer: 'Ernst & Young (EY)',
-      date: '2025',
-      description: "Certificates in audit fundamentals, business understanding and control frameworks, earned through EY's mandatory FAIT Immersion modules.",
+      name: 'GitHub Foundations',
+      issuer: 'GitHub',
+      description: 'Git, version control and collaboration workflows.',
+      url: 'https://learn.microsoft.com/en-us/users/kene-8791/credentials/a9d971bdb8bde1e',
     },
   ] satisfies Certification[],
   contact: {

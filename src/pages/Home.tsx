@@ -5,6 +5,7 @@ import { profile } from '../data/profile';
 import { Chip, Container, Reveal, SectionHeading, WindowFrame } from '../components/ui';
 import { btnGhost, btnPrimary } from '../components/styles';
 import EmailButton from '../components/EmailButton';
+import SkillMap from '../components/SkillMap';
 
 const gradientText = 'bg-gradient-to-r from-violet-300 via-fuchsia-300 to-violet-400 bg-clip-text text-transparent';
 const cardClass = 'rounded-2xl border border-white/10 bg-ink-900/60 p-5 backdrop-blur-sm';
@@ -60,24 +61,13 @@ const Hero = () => (
 const About = () => (
   <section id="about" className="scroll-mt-24 py-24 md:py-32">
     <Container>
-      <SectionHeading index="01" label="about" title="A developer from the data model down to the bare metal." />
+      <SectionHeading index="01" label="about" title="AI and data systems you can check." />
       <div className="grid gap-12 md:grid-cols-5">
-        <div className="space-y-8 md:col-span-3">
-          <Reveal className="space-y-6 text-lg leading-relaxed text-slate-400">
-            {profile.about.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </Reveal>
-          <Reveal>
-            <div className={`${cardClass} flex gap-4`}>
-              <span aria-hidden className="text-2xl">⚽</span>
-              <div>
-                <h3 className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">Beyond code</h3>
-                <p className="text-slate-300">{profile.beyondCode}</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal className="space-y-6 text-lg leading-relaxed text-slate-400 md:col-span-3">
+          {profile.about.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </Reveal>
 
         <div className="space-y-5 md:col-span-2">
           <Reveal>
@@ -95,18 +85,15 @@ const About = () => (
               </div>
             </div>
           </Reveal>
-          {profile.skills.map((group, i) => (
-            <Reveal key={group.label} delay={(i + 1) * 100}>
-              <div className={cardClass}>
-                <h3 className={cardLabel}>{group.label}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <Chip key={item}>{item}</Chip>
-                  ))}
-                </div>
+          <Reveal delay={100}>
+            <div className={`${cardClass} flex gap-4`}>
+              <span aria-hidden className="text-2xl">⚽</span>
+              <div>
+                <h3 className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">Beyond code</h3>
+                <p className="text-slate-300">{profile.beyondCode}</p>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
         </div>
       </div>
     </Container>
@@ -159,9 +146,20 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       </div>
     </WindowFrame>
     <div className="flex flex-1 flex-col px-3 pb-3 pt-6">
-      <p className="mb-2 font-mono text-xs text-violet-400">{String(index + 1).padStart(2, '0')}</p>
-      <h3 className="mb-3 font-display text-xl font-bold text-white transition-colors group-hover:text-violet-200">{project.name}</h3>
-      <p className="mb-6 text-sm leading-relaxed text-slate-400">{project.shortDescription}</p>
+      <p className="mb-2 font-mono text-xs text-violet-400">
+        {String(index + 1).padStart(2, '0')} <span className="text-slate-500">· {project.role}</span>
+      </p>
+      <h3 className="font-display text-xl font-bold text-white transition-colors group-hover:text-violet-200">{project.name}</h3>
+      <p className="mb-3 mt-1 text-sm text-violet-200/80">{project.tagline}</p>
+      <p className="mb-5 text-sm leading-relaxed text-slate-400">{project.shortDescription}</p>
+      <div className="mb-6 grid grid-cols-2 gap-2">
+        {project.highlights.slice(0, 2).map((h) => (
+          <div key={h.label} className="rounded-lg border border-white/5 bg-white/[0.03] px-3 py-2">
+            <p className="font-display text-lg font-bold text-white">{h.value}</p>
+            <p className="text-[11px] leading-snug text-slate-500">{h.label}</p>
+          </div>
+        ))}
+      </div>
       <div className="mt-auto flex flex-wrap gap-2">
         {project.techStack.map((tech) => (
           <Chip key={tech}>{tech}</Chip>
@@ -189,6 +187,18 @@ const Projects = () => (
   </section>
 );
 
+// --- TOOLKIT ---
+const Toolkit = () => (
+  <section id="toolkit" className="scroll-mt-24 py-24 md:py-32">
+    <Container>
+      <SectionHeading index="04" label="toolkit" title="My toolkit, traced to the work." />
+      <Reveal>
+        <SkillMap />
+      </Reveal>
+    </Container>
+  </section>
+);
+
 // --- CERTIFICATIONS ---
 const BadgeIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
@@ -200,20 +210,27 @@ const BadgeIcon = () => (
 const Certifications = () => (
   <section id="certifications" className="scroll-mt-24 py-24 md:py-32">
     <Container>
-      <SectionHeading index="04" label="certifications" title="Certifications" />
-      <div className="grid gap-6 md:grid-cols-3">
+      <SectionHeading index="05" label="certifications" title="Certifications" />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {profile.certifications.map((cert, i) => (
           <Reveal key={cert.name} delay={i * 100} className="h-full">
-            <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur-sm transition-colors hover:border-violet-400/40">
+            <a
+              href={cert.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-violet-400/40"
+            >
               <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet-600/20 opacity-60 blur-2xl transition-opacity group-hover:opacity-100" />
               <span className="relative mb-5 grid h-12 w-12 place-items-center rounded-xl border border-violet-400/30 bg-violet-500/15 text-violet-200">
                 <BadgeIcon />
               </span>
-              <h3 className="relative font-display text-xl font-bold text-white">{cert.name}</h3>
+              <h3 className="relative font-display text-lg font-bold leading-snug text-white">{cert.name}</h3>
               <p className="relative mt-1 text-sm text-slate-400">{cert.issuer}</p>
               <p className="relative mt-4 flex-1 text-sm leading-relaxed text-slate-300">{cert.description}</p>
-              <p className="relative mt-5 font-mono text-xs text-violet-300">{cert.date}</p>
-            </div>
+              <p className="relative mt-5 font-mono text-xs text-violet-300">
+                View credential <span className="inline-block transition-transform group-hover:translate-x-1">↗</span>
+              </p>
+            </a>
           </Reveal>
         ))}
       </div>
@@ -230,7 +247,7 @@ const Contact = () => (
           <div className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_bottom,rgba(106,77,169,0.45),transparent_65%)]" />
           <div className="relative">
             <p className="mb-4 font-mono text-sm text-violet-400">
-              <span className="text-violet-300/50">05</span> // contact
+              <span className="text-violet-300/50">06</span> // contact
             </p>
             <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
               Let's build something <span className={gradientText}>together.</span>
@@ -264,6 +281,7 @@ const Home = () => (
     <About />
     <Experience />
     <Projects />
+    <Toolkit />
     <Certifications />
     <Contact />
   </main>

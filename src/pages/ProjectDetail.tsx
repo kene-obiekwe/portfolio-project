@@ -37,11 +37,12 @@ const ProjectDetail = () => {
 
         <Reveal className="mt-10">
           <p className="mb-4 font-mono text-sm text-violet-400">
-            <span className="text-violet-300/50">{String(index + 1).padStart(2, '0')}</span> // project
+            <span className="text-violet-300/50">{String(index + 1).padStart(2, '0')}</span> // {project.role}
           </p>
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
             {project.name}
           </h1>
+          <p className="mt-3 text-lg text-violet-200/80 sm:text-xl">{project.tagline}</p>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-400 sm:text-xl">{project.fullDescription}</p>
           <div className="mt-8 flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
@@ -49,24 +50,36 @@ const ProjectDetail = () => {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
-            {project.githubLink && (
-              <a href={project.githubLink} target="_blank" rel="noreferrer" className={btnPrimary}>
-                View source code
+            {project.liveLink && (
+              <a href={project.liveLink} target="_blank" rel="noreferrer" className={btnPrimary}>
+                {project.liveLabel ?? 'Live demo'} ↗
               </a>
             )}
-            {project.liveLink && (
-              <a href={project.liveLink} target="_blank" rel="noreferrer" className={btnGhost}>
-                Live demo ↗
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noreferrer" className={btnGhost}>
+                View source code
               </a>
             )}
           </div>
         </Reveal>
 
         <Reveal delay={100} className="mt-14">
-          <WindowFrame title={`${project.id}.preview`}>
-            <img src={project.imageUrl} alt={project.name} className="w-full" />
+          <WindowFrame title={project.liveLink?.replace(/^https?:\/\//, '').replace(/\/$/, '') ?? `${project.id}.preview`}>
+            <img src={project.imageUrl} alt={`${project.name} screenshot`} className="w-full" />
           </WindowFrame>
         </Reveal>
+
+        {/* Headline numbers */}
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {project.highlights.map((h, i) => (
+            <Reveal key={h.label} delay={i * 80}>
+              <div className="h-full rounded-2xl border border-white/10 bg-ink-900/60 p-5 backdrop-blur-sm">
+                <p className="font-display text-2xl font-bold text-white sm:text-3xl">{h.value}</p>
+                <p className="mt-2 text-sm leading-snug text-slate-400">{h.label}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
 
         <div className="mt-16 grid gap-10 md:grid-cols-3">
           <div className="space-y-12 md:col-span-2">

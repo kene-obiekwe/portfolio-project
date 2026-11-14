@@ -4,6 +4,7 @@ const LINKS = [
   { id: 'about', label: 'About', show: 'inline-block' },
   { id: 'experience', label: 'Experience', show: 'hidden md:inline-block' },
   { id: 'projects', label: 'Projects', show: 'inline-block' },
+  { id: 'toolkit', label: 'Toolkit', show: 'hidden lg:inline-block' },
   { id: 'certifications', label: 'Certifications', show: 'hidden lg:inline-block' },
 ];
 
