@@ -22,7 +22,7 @@ export interface Project {
 
 export const myProjects: Project[] = [
   {
-    id: "ai-content-generator", // Trigger for Requirement 4 (Dedicated Detail Page)
+    id: "tooth-fixers",
     name: "Tooth Fixers Management System",
     shortDescription: "A three-tier clinical record system built for managing patient biodata and dental history.",
     fullDescription: "A robust solution for a large dental practice, implementing a strict three-tier architecture (Web server <-> Framework <-> DBMS). It features a secure React frontend connected to a NestJS API and PostgreSQL database.",
@@ -34,7 +34,7 @@ export const myProjects: Project[] = [
     learningOutcome: "Mastered full-stack integration and the coordination of complex relational data across a multi-tier environment."
   },
   {
-    id: "custom-os-kernel", // Requirement 2
+    id: "custom-os-kernel",
     name: "Rust x86_64 Operating System",
     shortDescription: "A low-level kernel featuring custom framebuffer writers and hardware-level print macros.",
     fullDescription: "A custom OS kernel built from scratch in Rust. It interacts directly with hardware to manage screen output, cursor positioning, and UEFI boot protocols.",
@@ -46,7 +46,7 @@ export const myProjects: Project[] = [
     learningOutcome: "Deepened understanding of memory safety in no_std environments and hardware-software interfacing."
   },
   {
-    id: "delivery-management-system", // Requirement 2
+    id: "delivery-management-system",
     name: "C++ Delivery & Logistics Engine",
     shortDescription: "A logistics application using core data structures to optimize parcel tracking and delivery workflows.",
     fullDescription: "A high-performance system designed to streamline logistics using advanced data structures like Linked Lists for parcel storage and Binary Search Trees for O(log n) searching.",
