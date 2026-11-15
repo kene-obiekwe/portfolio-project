@@ -34,7 +34,14 @@ const Hero = () => (
       <Reveal delay={150} className="relative w-24 self-start sm:w-36 md:row-span-2 md:w-60 lg:w-72">
         <div className="absolute -inset-6 rounded-full bg-violet-600/25 blur-3xl" />
         <WindowFrame className="relative">
-          <img src={profileImg} alt={`${profile.firstName} ${profile.lastName}`} className="aspect-[4/5] w-full object-cover" />
+          {/* Passport-style crop: zoom in from the top so the frame ends at the chest */}
+          <div className="aspect-[4/5] overflow-hidden">
+            <img
+              src={profileImg}
+              alt={`${profile.firstName} ${profile.lastName}`}
+              className="h-full w-full origin-top scale-[1.38] object-cover"
+            />
+          </div>
         </WindowFrame>
       </Reveal>
 
@@ -86,12 +93,9 @@ const About = () => (
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className={`${cardClass} flex gap-4`}>
-              <span aria-hidden className="text-2xl">⚽</span>
-              <div>
-                <h3 className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">Beyond code</h3>
-                <p className="text-slate-300">{profile.beyondCode}</p>
-              </div>
+            <div className={cardClass}>
+              <h3 className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">Beyond code</h3>
+              <p className="text-slate-300">{profile.beyondCode}</p>
             </div>
           </Reveal>
         </div>

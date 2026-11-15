@@ -16,9 +16,6 @@ const Footer = ({ onLeave }: { onLeave: () => void }) => (
         <a href={profile.contact.github} target="_blank" rel="noreferrer" className={linkClass}>
           GitHub
         </a>
-        <a href={profile.siteSource} target="_blank" rel="noreferrer" className={linkClass}>
-          Site source
-        </a>
         <button type="button" onClick={onLeave} className={linkClass}>
           ↺ Replay intro
         </button>

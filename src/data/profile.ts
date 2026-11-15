@@ -118,5 +118,4 @@ export const profile = {
     github: 'https://github.com/kene-obiekwe',
     linkedin: 'https://www.linkedin.com/in/kene-obiekwe10',
   },
-  siteSource: 'https://github.com/kene-obiekwe/portfolio-project',
 };
