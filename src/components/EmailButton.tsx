@@ -82,7 +82,7 @@ const EmailButton = () => {
           role="menu"
           className="absolute left-1/2 top-full z-20 mt-3 w-60 -translate-x-1/2 rounded-xl border border-white/10 bg-ink-800/95 p-2 text-left shadow-[0_20px_50px_-15px_rgba(0,0,0,0.9)] backdrop-blur-md"
         >
-          <p className="px-4 pb-2 pt-1 font-mono text-[11px] uppercase tracking-widest text-slate-500">Write from</p>
+          <p className="px-4 pb-2 pt-1 font-mono text-[11px] uppercase tracking-widest text-slate-400">Write from</p>
           {OPTIONS.map((option) => (
             <a
               key={option.label}
@@ -93,7 +93,7 @@ const EmailButton = () => {
               onClick={() => setOpen(false)}
               className={itemClass}
             >
-              {option.label} {option.external && <span className="text-slate-500">↗</span>}
+              {option.label} {option.external && <span className="text-slate-400">↗</span>}
             </a>
           ))}
           <div className="my-1 border-t border-white/5" />

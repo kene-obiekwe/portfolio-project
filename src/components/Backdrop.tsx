@@ -85,14 +85,14 @@ interface FloatingIcon {
 }
 
 const ICONS: FloatingIcon[] = [
-  { icon: <Planet />, pos: { left: '5%', top: '20%' }, size: 70, depth: 0.05, duration: 9, delay: 0, opacity: 0.3, show: 'hidden md:block' },
+  { icon: <Planet />, pos: { left: '5%', top: '20%' }, size: 70, depth: 0.05, duration: 9, delay: 0, opacity: 0.2, show: 'hidden md:block' },
   { icon: <Sparkle />, pos: { right: '9%', top: '13%' }, size: 26, depth: 0.02, duration: 5, delay: 1, opacity: 0.5, show: 'block' },
-  { icon: <Code />, pos: { right: '4%', top: '44%' }, size: 50, depth: 0.08, duration: 8, delay: 2, opacity: 0.28, show: 'hidden md:block' },
-  { icon: <MoonClouds />, pos: { left: '3%', top: '60%' }, size: 84, depth: 0.04, duration: 11, delay: 0.5, opacity: 0.3, show: 'hidden lg:block' },
-  { icon: <Terminal />, pos: { right: '8%', top: '76%' }, size: 52, depth: 0.06, duration: 10, delay: 3, opacity: 0.25, show: 'hidden lg:block' },
-  { icon: <Chip />, pos: { left: '10%', top: '86%' }, size: 44, depth: 0.09, duration: 7, delay: 1.5, opacity: 0.25, show: 'hidden md:block' },
-  { icon: <Database />, pos: { right: '3%', top: '62%' }, size: 40, depth: 0.03, duration: 9, delay: 4, opacity: 0.22, show: 'hidden xl:block' },
-  { icon: <Chart />, pos: { left: '4%', top: '40%' }, size: 44, depth: 0.07, duration: 8.5, delay: 2.5, opacity: 0.22, show: 'hidden xl:block' },
+  { icon: <Code />, pos: { right: '4%', top: '44%' }, size: 50, depth: 0.08, duration: 8, delay: 2, opacity: 0.2, show: 'hidden md:block' },
+  { icon: <MoonClouds />, pos: { left: '3%', top: '60%' }, size: 84, depth: 0.04, duration: 11, delay: 0.5, opacity: 0.2, show: 'hidden lg:block' },
+  { icon: <Terminal />, pos: { right: '8%', top: '76%' }, size: 52, depth: 0.06, duration: 10, delay: 3, opacity: 0.18, show: 'hidden lg:block' },
+  { icon: <Chip />, pos: { left: '10%', top: '86%' }, size: 44, depth: 0.09, duration: 7, delay: 1.5, opacity: 0.18, show: 'hidden md:block' },
+  { icon: <Database />, pos: { right: '3%', top: '62%' }, size: 40, depth: 0.03, duration: 9, delay: 4, opacity: 0.16, show: 'hidden xl:block' },
+  { icon: <Chart />, pos: { left: '4%', top: '40%' }, size: 44, depth: 0.07, duration: 8.5, delay: 2.5, opacity: 0.16, show: 'hidden xl:block' },
   { icon: <Sparkle />, pos: { left: '22%', top: '7%' }, size: 16, depth: 0.03, duration: 4, delay: 0, opacity: 0.6, show: 'block' },
   { icon: <Sparkle />, pos: { left: '50%', top: '94%' }, size: 18, depth: 0.05, duration: 6, delay: 2, opacity: 0.45, show: 'block' },
   { icon: <Sparkle />, pos: { right: '24%', top: '88%' }, size: 14, depth: 0.04, duration: 4.5, delay: 1, opacity: 0.5, show: 'hidden sm:block' },

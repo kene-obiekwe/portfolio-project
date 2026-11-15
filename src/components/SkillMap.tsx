@@ -128,12 +128,12 @@ const SkillMap = () => {
   // Status line: "> pgvector → Taxy"
   const status = (() => {
     if (!active)
-      return <span className="text-slate-500">hover or tap a skill to trace it to the projects that use it</span>;
+      return <span className="text-slate-400">hover or tap a skill to trace it to the projects that use it</span>;
     if (active.kind === 'project') {
       return (
         <>
           <span style={{ color: accentOf(active.id) }}>{labelOf(active.id)}</span>
-          <span className="text-slate-500"> uses </span>
+          <span className="text-slate-400"> uses </span>
           <span className="text-white">{activeProject?.uses.length} of these</span>
         </>
       );
@@ -142,16 +142,16 @@ const SkillMap = () => {
     return (
       <>
         <span className="text-white">{active.name}</span>
-        <span className="text-slate-500"> → </span>
+        <span className="text-slate-400"> → </span>
         {users.length ? (
           users.map((p, i) => (
             <span key={p.id}>
-              {i > 0 && <span className="text-slate-500">, </span>}
+              {i > 0 && <span className="text-slate-400">, </span>}
               <span style={{ color: accentOf(p.id) }}>{labelOf(p.id)}</span>
             </span>
           ))
         ) : (
-          <span className="text-slate-400">coursework &amp; earlier projects</span>
+          <span className="text-slate-300">coursework &amp; earlier projects</span>
         )}
       </>
     );
@@ -209,11 +209,11 @@ const SkillMap = () => {
                 boxShadow: lit ? `0 0 40px -12px ${color}` : undefined,
               }}
             >
-              <span className="font-mono text-[10px] text-slate-500 sm:text-xs">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-mono text-[10px] text-slate-400 sm:text-xs">{String(i + 1).padStart(2, '0')}</span>
               <span className="mt-1 font-display text-sm font-bold leading-tight text-white sm:text-lg">
                 {p.shortName ?? p.name}
               </span>
-              <span className="mt-1 hidden font-mono text-[11px] text-slate-500 sm:block">{p.uses.length} tools</span>
+              <span className="mt-1 hidden font-mono text-[11px] text-slate-400 sm:block">{p.uses.length} tools</span>
               <span
                 ref={(el) => {
                   if (el) orbEls.current.set(p.id, el);

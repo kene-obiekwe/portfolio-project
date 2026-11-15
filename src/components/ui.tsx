@@ -17,7 +17,7 @@ export const SectionHeading = ({ index, label, title }: { index: string; label: 
     <p className="mb-3 font-mono text-sm text-violet-400">
       <span className="text-violet-300/50">{index}</span> // {label}
     </p>
-    <h2 className="max-w-3xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">{title}</h2>
+    <h2 className="legible max-w-3xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">{title}</h2>
   </Reveal>
 );
 
@@ -30,7 +30,7 @@ export const WindowFrame = ({ title, children, className = '' }: { title?: strin
       <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
       <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
       <span className="h-2.5 w-2.5 rounded-full bg-violet-400/60" />
-      {title && <span className="ml-2 truncate font-mono text-[11px] text-slate-500">{title}</span>}
+      {title && <span className="ml-2 truncate font-mono text-[11px] text-slate-400">{title}</span>}
     </div>
     {children}
   </div>

@@ -5,7 +5,7 @@ const linkClass = 'transition-colors hover:text-violet-300';
 
 const Footer = ({ onLeave }: { onLeave: () => void }) => (
   <footer className="relative border-t border-white/5 py-10">
-    <Container className="flex flex-col items-center justify-between gap-4 font-mono text-xs text-slate-500 sm:flex-row">
+    <Container className="flex flex-col items-center justify-between gap-4 font-mono text-xs text-slate-400 sm:flex-row">
       <p>
         © {new Date().getFullYear()} {profile.firstName} {profile.lastName}
       </p>

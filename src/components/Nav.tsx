@@ -103,7 +103,7 @@ const Nav = ({ onLeave }: { onLeave: () => void }) => {
     `rounded-lg border px-3 py-2 transition-colors ${
       active === id
         ? 'border-violet-400/40 bg-violet-500/15 text-violet-100'
-        : 'border-transparent text-slate-400 hover:text-white'
+        : 'border-transparent text-slate-300 hover:text-white'
     }`;
 
   return (
@@ -159,7 +159,7 @@ const Nav = ({ onLeave }: { onLeave: () => void }) => {
             }}
             title="Leave — back to the desk"
             aria-label="Leave the portfolio and return to the intro"
-            className="ml-1 flex items-center gap-2 rounded-lg border border-white/10 px-2.5 py-2 text-slate-400 transition-colors hover:border-rose-400/50 hover:text-rose-200 sm:ml-2 sm:px-3"
+            className="ml-1 flex items-center gap-2 rounded-lg border border-white/10 px-2.5 py-2 text-slate-300 transition-colors hover:border-rose-400/50 hover:text-rose-200 sm:ml-2 sm:px-3"
           >
             <PowerIcon />
             <span className="hidden sm:inline">Leave</span>

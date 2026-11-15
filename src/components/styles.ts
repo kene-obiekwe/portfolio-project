@@ -5,3 +5,7 @@ export const btnPrimary =
 
 export const btnGhost =
   'inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-medium text-slate-200 transition-colors hover:border-violet-400/50 hover:bg-violet-500/10 hover:text-white';
+
+// Frosted panel behind text so it stays readable over the animated sky
+export const glass =
+  'rounded-2xl border border-white/[0.08] bg-ink-950/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_60px_-32px_rgba(0,0,0,0.9)] backdrop-blur-md';

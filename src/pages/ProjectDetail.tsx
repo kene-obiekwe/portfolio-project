@@ -1,10 +1,10 @@
 import { Link, useParams } from 'react-router-dom';
 import { myProjects } from '../data/projects';
 import { Chip, Container, Reveal, WindowFrame } from '../components/ui';
-import { btnGhost, btnPrimary } from '../components/styles';
+import { btnGhost, btnPrimary, glass } from '../components/styles';
 
 const BackLink = () => (
-  <Link to="/#projects" className="font-mono text-sm text-slate-400 transition-colors hover:text-violet-300">
+  <Link to="/#projects" className="font-mono text-sm text-slate-300 transition-colors hover:text-violet-300">
     ← back to projects
   </Link>
 );
@@ -43,7 +43,7 @@ const ProjectDetail = () => {
             {project.name}
           </h1>
           <p className="mt-3 text-lg text-violet-200/80 sm:text-xl">{project.tagline}</p>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-400 sm:text-xl">{project.fullDescription}</p>
+          <p className="legible mt-6 max-w-3xl text-lg leading-relaxed text-slate-200 sm:text-xl">{project.fullDescription}</p>
           <div className="mt-8 flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
               <Chip key={tech}>{tech}</Chip>
@@ -73,34 +73,34 @@ const ProjectDetail = () => {
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
           {project.highlights.map((h, i) => (
             <Reveal key={h.label} delay={i * 80}>
-              <div className="h-full rounded-2xl border border-white/10 bg-ink-900/60 p-5 backdrop-blur-sm">
+              <div className={`${glass} h-full p-5`}>
                 <p className="font-display text-2xl font-bold text-white sm:text-3xl">{h.value}</p>
-                <p className="mt-2 text-sm leading-snug text-slate-400">{h.label}</p>
+                <p className="mt-2 text-sm leading-snug text-slate-300">{h.label}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
         <div className="mt-16 grid gap-10 md:grid-cols-3">
-          <div className="space-y-12 md:col-span-2">
+          <div className={`${glass} space-y-10 self-start p-6 sm:p-8 md:col-span-2`}>
             <Reveal>
               <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">The problem</h2>
-              <p className="text-lg leading-relaxed text-slate-300">{project.problemSolved}</p>
+              <p className="text-lg leading-relaxed text-slate-200">{project.problemSolved}</p>
             </Reveal>
             <Reveal>
               <h2 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">What I learned</h2>
-              <p className="border-l-2 border-violet-500/60 pl-5 text-lg italic leading-relaxed text-slate-300">
+              <p className="border-l-2 border-violet-500/60 pl-5 text-lg italic leading-relaxed text-slate-200">
                 {project.learningOutcome}
               </p>
             </Reveal>
           </div>
 
           <Reveal delay={100}>
-            <aside className="rounded-2xl border border-white/10 bg-ink-900/60 p-6 backdrop-blur-sm md:sticky md:top-28">
+            <aside className={`${glass} p-6 md:sticky md:top-28`}>
               <h2 className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-violet-300">Key features</h2>
               <ul className="space-y-3">
                 {project.features.map((feature) => (
-                  <li key={feature} className="flex gap-3 text-sm text-slate-300">
+                  <li key={feature} className="flex gap-3 text-sm text-slate-200">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
                     {feature}
                   </li>
@@ -113,10 +113,10 @@ const ProjectDetail = () => {
         {next.id !== project.id && (
           <Link
             to={`/project/${next.id}`}
-            className="group mt-24 flex items-center justify-between gap-6 rounded-2xl border border-white/10 bg-ink-900/60 p-6 transition-colors hover:border-violet-400/40 sm:p-8"
+            className={`${glass} group mt-24 flex items-center justify-between gap-6 p-6 transition-colors hover:border-violet-400/40 sm:p-8`}
           >
             <div>
-              <p className="mb-2 font-mono text-xs text-slate-500">next project</p>
+              <p className="mb-2 font-mono text-xs text-slate-400">next project</p>
               <p className="font-display text-xl font-bold text-white transition-colors group-hover:text-violet-200 sm:text-2xl">
                 {next.name}
               </p>

@@ -138,6 +138,11 @@ html {
   animation: intro-blink 1s steps(1) infinite;
 }
 
+/* Soft dark halo so text outside panels stays readable over the stars and glows */
+.legible {
+  text-shadow: 0 1px 2px rgba(8, 7, 15, 0.7), 0 0 20px rgba(8, 7, 15, 0.6);
+}
+
 /* --- Skill map --- */
 .skill-line {
   stroke-dasharray: 1;
